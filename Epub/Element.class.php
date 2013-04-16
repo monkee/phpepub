@@ -26,7 +26,7 @@ class Epub_Element
 	 */
 	public function asString(){
 		if($this->type == 'xml'){
-			return '<?xml version="1.0" encoding="UTF-8"?>' . "\n" . $this->string();
+			return '<?xml version="1.0" encoding="UTF-8"?>' . "\n" . $this->getString();
 		}
 		return $this->string;
 	}
@@ -45,6 +45,10 @@ class Epub_Element
 
 	final public function clearString(){
 		$this->string = '';
+	}
+
+	public function getString(){
+		return $this->string;
 	}
 }
 

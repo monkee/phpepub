@@ -32,11 +32,18 @@ class Epub
 			$this->elements[$k] = new $class();
 		}
     }
+	public function addImage(Epub_Element_Image $image){
+	}
+
+	public function addCss(Epub_Element_Css $css){
+	}
+
     public function addChapter($chapterSubject, Epub_Element_Html $chapter){
     }
 
 	public function create($epubfile){
 		$zip = new Epub_Zip();
+		$zip->setZipFile($epubfile);
 		$zip->setComment("Create by PHPEpub.\nCreate On " . date('Y-m-d H:i:s'));
 
 		//add elements
@@ -49,7 +56,8 @@ class Epub
 			$zip->addFile($ele->asString(), $ele->getFile());
 		}
 
-		$zip->sendZip($epubfile);
+		//$zip->sendZip($epubfile);
+		$zip->finalize();
 	}
 
 	public function __call($method, $argv){

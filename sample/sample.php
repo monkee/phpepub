@@ -17,10 +17,11 @@ $epub->setAuthor("百度文库");
 $epub->setLanguage("zh_CN");
 
 //file object add
-$css = new Epub_Element_CSS("sample");
-$epub->addCSS($cssObject);
-$epub->addImage($imageObject);
-$epub->addChapter($chapterName, $htmlObject);
+$css = new Epub_Element_Css("sample");
+$epub->addCss($css);
+//$epub->addImage($imageObject);
+$html = new Epub_Element_Html('');
+$epub->addChapter($chapterName, $html);
 
 //create file
 $epub->create("sample.epub");
