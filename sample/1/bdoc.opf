@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="bdoc-4494f94fe70b" version="2.0">
+<metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:opf="http://www.idpf.org/2007/opf" xmlns:dcterms="http://purl.org/dc/terms/">
+<dc:title>百度文库生成的文档</dc:title>
+<dc:language>zh_CN</dc:language>
+<dc:identifier id="bdoc-4494f94fe70b" opf:scheme="URI">http://somehost.com/id.html</dc:identifier>
+<dc:description>epub description</dc:description>
+<dc:publisher>who</dc:publisher>
+<dc:relation></dc:relation>
+<dc:creator opf:file-as="" opf:role="aut"></dc:creator>
+<dc:date></dc:date>
+<dc:rights>Open access</dc:rights>
+<dc:source></dc:source>
+<manifest>
+</manifest>
+<spine toc="ncx">
+</spine>
+<guide>
+</guide>

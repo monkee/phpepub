@@ -33,13 +33,22 @@ class Epub
 		}
     }
 	public function addImage(Epub_Element_Image $image){
+		$this->addHtmlElement($image);
 	}
 
 	public function addCss(Epub_Element_Css $css){
+		$this->addHtmlElement($css);
 	}
 
     public function addChapter($chapterSubject, Epub_Element_Html $chapter){
+		$this->addHtmlElement($chapter);
+		$this->elements['ncx']->addNav(new Epub_Element_Ncx_Nav($chapter->getId(), $playOrder, $chapter->getFile(), $chapterSubject));
     }
+
+	public function addHtmlElement(Epub_Element $ele){
+		$this->elements['opf']->addElement($ele);
+		$this->htmls[] = $ele;
+	}
 
 	public function create($epubfile){
 		$zip = new Epub_Zip();

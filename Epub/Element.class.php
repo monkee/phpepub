@@ -16,6 +16,7 @@ class Epub_Element
 	protected $file = '';	//file name & path relate in zip
 	protected $type = 'xml';	//file type,default is 'xml', text|html|image is also supported
 	protected $string = '';	//file content
+	protected $id = '';	//
 
 	/**
 	 * get file text
@@ -28,9 +29,12 @@ class Epub_Element
 		if($this->type == 'xml'){
 			return '<?xml version="1.0" encoding="UTF-8"?>' . "\n" . $this->getString();
 		}
-		return $this->string;
+		return $this->getString();
 	}
 
+	final public function getId(){
+		return $this->id;
+	}
 	final public function getType(){
 		return $this->type;
 	}

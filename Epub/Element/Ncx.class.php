@@ -6,16 +6,7 @@
  */
 class Epub_Element_Ncx extends Epub_Element
 {
-	private $navMap = array(
-		/*
-		array(
-			'id' => '0',
-			'playOrder' => '0', //default self index
-			'text' => 'default text',
-			'src' => '', //html src
-		),
-		*/
-	);
+	private $navMap = array();
 
 	private $docTitle = 'Default';
 	private $docAuthor = 'Default';
