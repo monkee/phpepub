@@ -59,7 +59,7 @@ class Epub_Element_Opf extends Epub_Element
 		$this->addMetadata();
 		$this->addManifest();
 		$this->addSpine();
-		$this->addGuide();
+		//$this->addGuide();  //暂时还没搞清楚这是干嘛的，注释掉
 
 		$this->addString('</package>');
 		return $this->string;
@@ -107,7 +107,7 @@ class Epub_Element_Opf extends Epub_Element
 		if(!empty($this->cover)){
 			$ele = $this->cover;
 			$this->addString(sprintf(
-				'<itemref idref="%s" />',
+				'<itemref idref="%s" linear="no"/>',
 				$ele->getId()
 			));
 		}
@@ -116,7 +116,7 @@ class Epub_Element_Opf extends Epub_Element
 				continue;
 			}
 			$this->addString(sprintf(
-				'<itemref idref="%s" />',
+				'<itemref idref="%s" linear="no"/>',
 				$ele->getId()
 			));
 		}

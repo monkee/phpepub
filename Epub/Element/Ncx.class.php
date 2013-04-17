@@ -13,7 +13,7 @@ class Epub_Element_Ncx extends Epub_Element
 
 	public function __construct(){
 		$this->file = 'bdoc.ncx';
-		$this->type = 'xml';
+		$this->type = 'ncx';
 		$this->id = 'ncx';
 	}
 
@@ -41,23 +41,16 @@ class Epub_Element_Ncx extends Epub_Element
 		foreach($this->navMap as &$nav){
 			$nav->playOrder++;
 		}
-		array_unshift($this->navMap, new Epub_Element_Ncx_Nav($html->id, 0, $html->getFile(), 'CoverPage'));
+		array_unshift($this->navMap, new Epub_Element_Ncx_Nav($html->id, 1, $html->getFile(), 'CoverPage'));
 	}
 
 	public function getString(){
 		$this->clearString();
 		//doctype section
 		$this->addString('<!DOCTYPE ncx PUBLIC "-//NISO//DTD ncx 2005-1//EN" "http://www.daisy.org/z3986/2005/ncx-2005-1.dtd">');
-		$this->addString('<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="cn">');
+		$this->addString('<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">');
 		//meta section
 		$this->addString('<head>');
-		/**
-		 * <meta name="dtb:uid" content="http://JohnJaneDoePublications.com/books/TestBook.html" />
-		 * <meta name="dtb:depth" content="2" />
-		 * <meta name="dtb:totalPageCount" content="0" />
-		 * <meta name="dtb:maxPageNumber" content="0" />
-		 * <meta name="dtb:generator" content="EPub (2.11) by A. Grandt, http://www.phpclasses.org/package/6115" />
-		 */
 		$this->addString('<meta name="dtb:uid" content="" />');
 		$this->addString('<meta name="dtb:depth" content="2" />');
 		$this->addString('<meta name="dtb:totalPageCount" content="0" />');
@@ -65,8 +58,8 @@ class Epub_Element_Ncx extends Epub_Element
 		$this->addString('<meta name="dtb:generator" content="PHPEpub (v0.1) alpha, https://github.com/monkee/phpepub" />');
 		$this->addString('</head>');
 		//docTitle & docAuthor
-		$this->addString(sprintf('<docTitle><text>%s<text></docTitle>', $this->docTitle));
-		$this->addString(sprintf('<docAuthor><text>%s<text></docAuthor>', $this->docAuthor));
+		$this->addString(sprintf('<docTitle><text>%s</text></docTitle>', $this->docTitle));
+		$this->addString(sprintf('<docAuthor><text>%s</text></docAuthor>', $this->docAuthor));
 		//navmap section
 		$this->addString('<navMap>');
 		foreach($this->navMap as $i => $nav){

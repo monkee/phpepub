@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="bdoc-dc4fae23aa32" version="2.0">
+<metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:opf="http://www.idpf.org/2007/opf" xmlns:dcterms="http://purl.org/dc/terms/">
+<dc:title>百度文库生成的文档</dc:title>
+<dc:language>cn</dc:language>
+<dc:identifier id="bdoc-dc4fae23aa32" opf:scheme="URI">http://somehost.com/id.html</dc:identifier>
+<dc:description>epub description</dc:description>
+<dc:publisher>who</dc:publisher>
+<dc:relation>relation</dc:relation>
+<dc:creator opf:file-as="monkee" opf:role="aut">monkee</dc:creator>
+<dc:date>2013-03-24</dc:date>
+<dc:rights>Open access</dc:rights>
+<dc:source>source</dc:source>
+<meta name="bdocelement1" content="coverImage" />
+</metadata>
+<manifest>
+<item id="bdocelement1" href="0.html" media-type="application/xhtml+xml" />
+<item id="ncx" href="bdoc.ncx" media-type="application/x-dtbncx+xml" />
+<item id="bdocelement0" href="image/style.css" media-type="text/css" />
+<item id="bdocelement2" href="image/1.jpg" media-type="image/jpeg" />
+<item id="bdocelement3" href="1.html" media-type="application/xhtml+xml" />
+<item id="bdocelement4" href="2.html" media-type="application/xhtml+xml" />
+<item id="bdocelement5" href="3.html" media-type="application/xhtml+xml" />
+<item id="bdocelement6" href="4.html" media-type="application/xhtml+xml" />
+<item id="bdocelement7" href="5.html" media-type="application/xhtml+xml" />
+<item id="bdocelement8" href="6.html" media-type="application/xhtml+xml" />
+<item id="bdocelement9" href="7.html" media-type="application/xhtml+xml" />
+<item id="bdocelement10" href="8.html" media-type="application/xhtml+xml" />
+<item id="bdocelement11" href="9.html" media-type="application/xhtml+xml" />
+</manifest>
+<spine toc="ncx">
+<itemref idref="bdocelement1" linear="no"/>
+<itemref idref="bdocelement3" linear="no"/>
+<itemref idref="bdocelement4" linear="no"/>
+<itemref idref="bdocelement5" linear="no"/>
+<itemref idref="bdocelement6" linear="no"/>
+<itemref idref="bdocelement7" linear="no"/>
+<itemref idref="bdocelement8" linear="no"/>
+<itemref idref="bdocelement9" linear="no"/>
+<itemref idref="bdocelement10" linear="no"/>
+<itemref idref="bdocelement11" linear="no"/>
+</spine>
+</package>

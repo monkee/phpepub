@@ -6,7 +6,7 @@
  */
 class Epub_Element_Ncx_Nav
 {
-	static private $PLAY_ORDER_ID = 0;
+	static private $PLAY_ORDER_ID = 1;
 	public $id = '';
 	public $playOrder = '';
 	public $src = '';

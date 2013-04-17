@@ -60,7 +60,6 @@ class Epub
 	public function create($epubfile){
 		$zip = new Epub_Zip();
 		$zip->setZipFile($epubfile);
-		$zip->setComment("Create by PHPEpub.\nCreate On " . date('Y-m-d H:i:s'));
 
 		//add elements
 		foreach($this->elements as $ele){
@@ -72,7 +71,6 @@ class Epub
 			$zip->addFile($ele->asString(), $ele->getFile());
 		}
 
-		//$zip->sendZip($epubfile);
 		$zip->finalize();
 	}
 

@@ -1,0 +1,24 @@
+<!DOCTYPE ncx PUBLIC "-//NISO//DTD ncx 2005-1//EN" "http://www.daisy.org/z3986/2005/ncx-2005-1.dtd">
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">
+<head>
+<meta name="dtb:uid" content="" />
+<meta name="dtb:depth" content="2" />
+<meta name="dtb:totalPageCount" content="0" />
+<meta name="dtb:maxPageNumber" content="0" />
+<meta name="dtb:generator" content="PHPEpub (v0.1) alpha, https://github.com/monkee/phpepub" />
+</head>
+<docTitle><text>百度文库生成的文档</text></docTitle>
+<docAuthor><text>百度文库</text></docAuthor>
+<navMap>
+<navPoint id="bdocelement1" playOrder="1"><navLabel><text>CoverPage</text></navLabel><content src="0.html" /></navPoint>
+<navPoint id="bdocelement3" playOrder="2"><navLabel><text>section 1</text></navLabel><content src="1.html" /></navPoint>
+<navPoint id="bdocelement4" playOrder="3"><navLabel><text>section 2</text></navLabel><content src="2.html" /></navPoint>
+<navPoint id="bdocelement5" playOrder="4"><navLabel><text>section 3</text></navLabel><content src="3.html" /></navPoint>
+<navPoint id="bdocelement6" playOrder="5"><navLabel><text>section 4</text></navLabel><content src="4.html" /></navPoint>
+<navPoint id="bdocelement7" playOrder="6"><navLabel><text>section 5</text></navLabel><content src="5.html" /></navPoint>
+<navPoint id="bdocelement8" playOrder="7"><navLabel><text>section 6</text></navLabel><content src="6.html" /></navPoint>
+<navPoint id="bdocelement9" playOrder="8"><navLabel><text>section 7</text></navLabel><content src="7.html" /></navPoint>
+<navPoint id="bdocelement10" playOrder="9"><navLabel><text>section 8</text></navLabel><content src="8.html" /></navPoint>
+<navPoint id="bdocelement11" playOrder="10"><navLabel><text>section 9</text></navLabel><content src="9.html" /></navPoint>
+</navMap>
+</ncx>
