@@ -31,6 +31,7 @@ class Epub
 			$class = 'Epub_Element_' . ucfirst($k);
 			$this->elements[$k] = new $class();
 		}
+		$this->elements['opf']->addElement($this->elements['ncx']);
     }
 	public function addImage(Epub_Element_Image $image){
 		$this->addHtmlElement($image);

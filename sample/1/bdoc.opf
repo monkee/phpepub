@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="bdoc-c40a332273c8" version="2.0">
+<metadata xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:opf="http://www.idpf.org/2007/opf" xmlns:dcterms="http://purl.org/dc/terms/">
+<dc:title>百度文库生成的文档</dc:title>
+<dc:language>zh_CN</dc:language>
+<dc:identifier id="bdoc-c40a332273c8" opf:scheme="URI">http://somehost.com/id.html</dc:identifier>
+<dc:description>epub description</dc:description>
+<dc:publisher>who</dc:publisher>
+<dc:relation></dc:relation>
+<dc:creator opf:file-as="" opf:role="aut"></dc:creator>
+<dc:date></dc:date>
+<dc:rights>Open access</dc:rights>
+<dc:source></dc:source>
+<manifest>
+<item id="" href="bdoc.ncx" media-type="text/xml" />
+<item id="0" href="image/style.css" media-type="text/css" />
+<item id="1" href="image/1.jpg" media-type="image/jpeg" />
+<item id="2" href="1.html" media-type="application/xhtml+xml" />
+<item id="3" href="2.html" media-type="application/xhtml+xml" />
+</manifest>
+<spine toc="ncx">
+<itemref idref="2" />
+<itemref idref="3" />
+</spine>
+<guide>
+</guide>
+</package>

@@ -19,7 +19,17 @@ $epub->setLanguage("zh_CN");
 //file object add
 //$css = new Epub_Element_Css("sample");
 //$epub->addCss($css);
-//$epub->addImage($imageObject);
+//
+$css = new Epub_Element_Css();
+$css->setSrc('style.css');
+$css->setFile('image/style.css');
+$epub->addCss($css);
+
+$image = new Epub_Element_Image();
+$image->setSrc('1.jpg');
+$image->setFile('image/1.jpg');
+$epub->addImage($image);
+
 $html = new Epub_Element_Html();
 $html->setSrc('1.html');
 $html->setFile('1.html');

@@ -15,6 +15,7 @@ class Epub_Element_Image extends Epub_Element
 
 	public function setSrc($file){
 		$this->srcFile = $file;
+		$this->type = $this->getTypeOfFile($file);
 	}
 
 	public function setFile($file){
@@ -23,6 +24,11 @@ class Epub_Element_Image extends Epub_Element
 
 	public function getString(){
 		return file_get_contents($this->srcFile);
+	}
+
+	private function getTypeOfFile($file){
+		$file = $this->srcFile;
+		return substr($file, strrpos($file, '.') + 1);
 	}
 }
 
