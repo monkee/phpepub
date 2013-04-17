@@ -37,7 +37,7 @@ $image->setSrc('1.jpg');
 $image->setFile('image/1.jpg');
 $epub->addImage($image);
 
-for($i = 1; $i < 10; $i++){
+for($i = 1; $i < 2; $i++){
 	$html = new Epub_Element_Html();
 	$html->setSrc('1.html');
 	$html->setFile($i . '.html');
