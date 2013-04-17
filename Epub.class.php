@@ -51,6 +51,12 @@ class Epub
 		$this->htmls[] = $ele;
 	}
 
+	public function setCover(Epub_Element_Html $cover){
+		$this->elements['opf']->setCover($cover);
+		$this->elements['ncx']->setCover($cover);
+		$this->htmls[] = $cover;
+	}
+
 	public function create($epubfile){
 		$zip = new Epub_Zip();
 		$zip->setZipFile($epubfile);
@@ -71,6 +77,9 @@ class Epub
 	}
 
 	public function __call($method, $argv){
+		if('setAuthor' == $method || 'setTitle' == $method){
+			$this->elements['ncx']->$method($argv[0]);
+		}
 		$this->elements['opf']->__call($method, $argv);
 	}
 }

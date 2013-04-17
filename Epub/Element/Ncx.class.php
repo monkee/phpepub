@@ -14,6 +14,7 @@ class Epub_Element_Ncx extends Epub_Element
 	public function __construct(){
 		$this->file = 'bdoc.ncx';
 		$this->type = 'xml';
+		$this->id = 'ncx';
 	}
 
 	public function setTitle($title){
@@ -33,6 +34,14 @@ class Epub_Element_Ncx extends Epub_Element
 	 */
 	public function addNav(Epub_Element_Ncx_Nav $nav){
 		$this->navMap[] = $nav;
+	}
+
+	public function setCover(Epub_Element_Html $html){
+		Epub_Element_Ncx_Nav::genPlayOrder();
+		foreach($this->navMap as &$nav){
+			$nav->playOrder++;
+		}
+		array_unshift($this->navMap, new Epub_Element_Ncx_Nav($html->id, 0, $html->getFile(), 'CoverPage'));
 	}
 
 	public function getString(){

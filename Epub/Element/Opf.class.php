@@ -19,11 +19,11 @@ class Epub_Element_Opf extends Epub_Element
 		'dc:identifier' => 'http://somehost.com/id.html',	//标识，唯一
 		'dc:description' => 'epub description',	//描述，书的简介
 		'dc:publisher' => 'who',	//发布者
-		'dc:relation' => '',	//关联方，可以是网址
-		'dc:creator' => '',
-		'dc:date' => '',
+		'dc:relation' => 'relation',	//关联方，可以是网址
+		'dc:creator' => 'monkee',
+		'dc:date' => '2013-03-24',
 		'dc:rights' => 'Open access',
-		'dc:source' => '',
+		'dc:source' => 'source',
 	);
 
 	private $manifest = array();
@@ -36,7 +36,6 @@ class Epub_Element_Opf extends Epub_Element
 
 	public function setCover(Epub_Element_Html $cover){
 		$this->cover = $cover;
-		$this->manifest['cover'] = $cover;
 	}
 
 	public function addElement(Epub_Element $ele){
@@ -79,12 +78,20 @@ class Epub_Element_Opf extends Epub_Element
 		}
 		//add cover page
 		if(!empty($this->cover)){
-			$this->addString('<meta name="cover" content="coverImage" />');
+			$this->addString(sprintf('<meta name="%s" content="coverImage" />', $this->cover->getId()));
 		}
+		$this->addString('</metadata>');
 	}
 
 	private function addManifest(){
 		$this->addString('<manifest>');
+		if(!empty($this->cover)){
+			$ele = $this->cover;
+			$this->addString(sprintf(
+				'<item id="%s" href="%s" media-type="%s" />',
+				$ele->getId(), $ele->getFile(), self::$TYPE_TO_META[$ele->getType()]
+			));
+		}
 		foreach($this->manifest as $ele){
 			$this->addString(sprintf(
 				'<item id="%s" href="%s" media-type="%s" />',
@@ -96,6 +103,14 @@ class Epub_Element_Opf extends Epub_Element
 
 	private function addSpine(){
 		$this->addString('<spine toc="ncx">');
+
+		if(!empty($this->cover)){
+			$ele = $this->cover;
+			$this->addString(sprintf(
+				'<itemref idref="%s" />',
+				$ele->getId()
+			));
+		}
 		foreach($this->manifest as $ele){
 			if('html' != $ele->getType()){
 				continue;

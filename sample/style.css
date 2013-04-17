@@ -1,6 +1,3 @@
-@charset "gbk";
-/* CSS Document */
-
 html,body{ margin:0; padding:0 10px; font-family:"微软雅黑"; font-size:12px; }
 h1,h2,h3,h4,h5,h6,p,div{ font-size:12px; }
 h1{ font-size:24px; padding:5px 0; border-bottom:dotted 1px #000000; }
@@ -15,11 +12,6 @@ td{ border-bottom:solid 1px #666; padding:2px; margin:0; }
 ul{ margin:0; padding:0; list-style:none; }
 ul li{ margin:0.6em 0; border-bottom:dotted 1px #DFF4D4; }
 
-
-
-/********************************
- * 常用的框样式
- ********************************/
 .message{ padding:7px; border:dotted 1px #CCCCCC; }
 .warning{ border-color:#F99; color:#C00; }
 
