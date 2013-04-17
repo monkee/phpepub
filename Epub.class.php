@@ -42,7 +42,7 @@ class Epub
 
     public function addChapter($chapterSubject, Epub_Element_Html $chapter){
 		$this->addHtmlElement($chapter);
-		$this->elements['ncx']->addNav(new Epub_Element_Ncx_Nav($chapter->getId(), $playOrder, $chapter->getFile(), $chapterSubject));
+		$this->elements['ncx']->addNav(new Epub_Element_Ncx_Nav($chapter->getId(), Epub_Element_Ncx_Nav::genPlayOrder(), $chapter->getFile(), $chapterSubject));
     }
 
 	public function addHtmlElement(Epub_Element $ele){

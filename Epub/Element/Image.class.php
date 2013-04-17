@@ -10,7 +10,7 @@ class Epub_Element_Image extends Epub_Element
 	public function __construct($file = ''){
 		$this->file = $file;
 		$this->type = 'image';
-		$this->mimedata = '';
+		$this->genId();
 	}
 
 	public function setSrc($file){

@@ -6,6 +6,7 @@
  */
 class Epub_Element_Ncx_Nav
 {
+	static private $PLAY_ORDER_ID = 0;
 	public $id = '';
 	public $playOrder = '';
 	public $src = '';
@@ -16,6 +17,10 @@ class Epub_Element_Ncx_Nav
 		$this->playOrder = $playOrder;
 		$this->src = $src;
 		$this->text = $text;
+	}
+
+	static public function genPlayOrder(){
+		return self::$PLAY_ORDER_ID++;
 	}
 }
 

@@ -10,7 +10,7 @@ class Epub_Element_Css extends Epub_Element
 	public function __construct($file = ''){
 		$this->file = $file;
 		$this->type = 'css';
-		$this->mimedata = '';
+		$this->genId();
 	}
 
 	public function setSrc($file){

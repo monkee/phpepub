@@ -7,10 +7,15 @@
 class Epub_Element_Html extends Epub_Element
 {
 	private $srcFile = '';
-	public function __construct($file = ''){
+	public function __construct($id = ''){
 		$this->file = $file;
 		$this->type = 'html';
 		$this->mimedata = '';
+		if(empty($id)){
+			$this->genId();
+		}else{
+			$this->id = $id;
+		}
 	}
 
 	public function setSrc($file){

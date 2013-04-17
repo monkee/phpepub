@@ -8,7 +8,7 @@ class Epub_Element_Opf extends Epub_Element
 {
 	static private $TYPE_TO_META = array(
 		'xml' => 'text/xml',
-		'xhtml' => 'application/xhtml+xml',
+		'html' => 'application/xhtml+xml',
 		'css' => 'text/css',
 		'jpg' => 'image/jpeg',
 		'ncx' => 'application/x-dtbncx+xml',
@@ -88,7 +88,7 @@ class Epub_Element_Opf extends Epub_Element
 		foreach($this->manifest as $ele){
 			$this->addString(sprintf(
 				'<item id="%s" href="%s" media-type="%s" />',
-				$ele->getId(), $this->getFile(), self::$TYPE_TO_META[$ele->getType()]
+				$ele->getId(), $ele->getFile(), self::$TYPE_TO_META[$ele->getType()]
 			));
 		}
 		$this->addString('</manifest>');
@@ -97,7 +97,7 @@ class Epub_Element_Opf extends Epub_Element
 	private function addSpine(){
 		$this->addString('<spine toc="ncx">');
 		foreach($this->manifest as $ele){
-			if('xhtml' != $ele->getType()){
+			if('html' != $ele->getType()){
 				continue;
 			}
 			$this->addString(sprintf(

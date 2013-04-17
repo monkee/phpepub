@@ -13,6 +13,7 @@
 
 class Epub_Element
 {
+	static private $ID_INDEX = 0;
 	protected $file = '';	//file name & path relate in zip
 	protected $type = 'xml';	//file type,default is 'xml', text|html|image is also supported
 	protected $string = '';	//file content
@@ -53,6 +54,10 @@ class Epub_Element
 
 	public function getString(){
 		return $this->string;
+	}
+
+	final protected function genId(){
+		$this->id = self::$ID_INDEX++;
 	}
 }
 
