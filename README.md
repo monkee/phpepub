@@ -12,5 +12,9 @@ phpepub
 
 # 备注
 
-epub介绍：http://idpf.org/epub
+epub介绍：http://idpf.org/epub  
 zip class : http://www.phpclasses.org/package/6110
+
+# example
+
+1. sample/sample.php
