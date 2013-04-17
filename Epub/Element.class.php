@@ -57,7 +57,7 @@ class Epub_Element
 	}
 
 	final protected function genId(){
-		$this->id = 'bdocelement' . self::$ID_INDEX++;
+		$this->id = 'bele' . self::$ID_INDEX++;
 	}
 }
 
