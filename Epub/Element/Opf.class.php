@@ -11,6 +11,7 @@ class Epub_Element_Opf extends Epub_Element
 		'html' => 'application/xhtml+xml',
 		'css' => 'text/css',
 		'jpg' => 'image/jpeg',
+		'jpeg' => 'image/jpeg',
 		'png' => 'image/png',
 		'ncx' => 'application/x-dtbncx+xml',
 	);
@@ -47,7 +48,7 @@ class Epub_Element_Opf extends Epub_Element
 		if(strpos($method, 'set') === 0){
 			$key = 'dc:' . strtolower(substr($method, 3));
 			if(isset($this->metadata[$key])){
-				$this->metadata[$key] = $argv[0];
+				$this->metadata[$key] = htmlspecialchars($argv[0]);
 			}
 		}
 	}

@@ -26,7 +26,15 @@ class Epub_Element_Html extends Epub_Element
 		$this->file = $file;
 	}
 
+	public function setContent($content){
+		$this->string = $content;
+		$this->srcFile = '';
+	}
+
 	public function getString(){
+		if(empty($this->srcFile)){
+			return $this->string;
+		}
 		return file_get_contents($this->srcFile);
 	}
 }

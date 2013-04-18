@@ -17,9 +17,9 @@ if(!defined("DS")){
 	define("DS", DIRECTORY_SEPARATOR); //使用DS作为DIRECTORY_SEPARATOR的缩写，已经成为了一种共识
 }
 
-define("SD_ROOT", dirname(__FILE__));
+define("PE_ROOT", dirname(__FILE__));
 
-spl_autoload_register("__sd_autoload"); //注册自动载入函数，使得类的载入规则化
+spl_autoload_register("__pepub_autoload"); //注册自动载入函数，使得类的载入规则化
 
 /**
  * autoload
@@ -35,56 +35,12 @@ spl_autoload_register("__sd_autoload"); //注册自动载入函数，使得类�
  * @param string $class
  * @throws SDException
  */
-function __sd_autoload($class){
+function __pepub_autoload($class){
 	$classPath = str_replace('_', DS, $class);
-	/*
-	if(strpos($classPath, DS) === false){
-		$classPath .= DS . $class;
-	}
-	 */
-	$classPath = SD_ROOT . DS . $classPath . '.class.php';
+	$classPath = PE_ROOT . DS . $classPath . '.class.php';
 	if(!is_file($classPath)){
 		throw new SDException("Class {$class} is not defined,should be {$classPath}."); //或者有别的方案也行，比如：不作为
 	}
 	include_once $classPath;
 }
 
-/**
- * 该类库下的通用异常
- * 
- * 默认情况下，使用这个异常类来承载信息
- * 这意味着，我们可以更加专注于正常的逻辑流程，而不必考虑如何使用错误码来
- * 各个子包可以有自己的异常处理机制，可以有考虑
- * 1. 继承该异常类
- * 2. 继承PHP自己的Exception
- * 
- * 如果只是在本类包下使用这个子包，那么使用SDException更方便
- * 如果期望更加通用地使用这个子包，那么使用Exception有更好的可移植性
- * 
- * @author monkee
- */
-class SDException extends Exception{
-	const FATAL = 100;	//不可接受的异常，通常会引起程序执行出错
-	const WANNING = 101;	//不建议使用的异常，通常会引起程序执行异常
-	const MESSAGE = 102;	//通常不影响程序正常执行，但为了提醒用户这些信息
-	
-	/**
-	 * 构造函数
-	 * 
-	 * @param string $message
-	 * @param int $code
-	 */
-	public function __construct($message, $code = self::WANNING){
-		parent::__construct($message, $code);
-	}
-	
-	/**
-	 * 当做string时的输出格式话
-	 * 
-	 * @return string
-	 */
-	public function __toString(){
-		return sprintf("[%d] %s (%s-%d)",
-			$this->code, $this->message, $this->file, $this->line);
-	}
-}
