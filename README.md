@@ -22,5 +22,5 @@ zip class : http://www.phpclasses.org/package/6110
 # fix bugs
 
 1. html file DOCTYPE should be absolutely 
-	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">  
 	if not district, when using epub2pdf it will throw Exception and convert fail.

@@ -11,6 +11,7 @@ class Epub_Element_Opf extends Epub_Element
 		'html' => 'application/xhtml+xml',
 		'css' => 'text/css',
 		'jpg' => 'image/jpeg',
+		'png' => 'image/png',
 		'ncx' => 'application/x-dtbncx+xml',
 	);
 	private $metadata = array(

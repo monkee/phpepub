@@ -1,10 +1,14 @@
 <?php
 /**
- * A class for creating Epub file by php;
+ * Basic class of file object
  *
- * I have seen some of class that cat create Epub,
- * but none of them is well-formatted.
- * So I write this class to help build a good class;
+ * Each file as common methods,such as ncx,opf
+ * Each file has priperties such as :
+ *
+ * id 
+ * file file path relate to zip
+ * string file content
+ * type xml|opf|ncx|html|css|jpg|png
  *
  * @file Epub.class.php
  * @author zomboo1(@126.com)
@@ -33,29 +37,63 @@ class Epub_Element
 		return $this->getString();
 	}
 
+	/**
+	 * Get id of this object
+	 *
+	 * @return string
+	 */
 	final public function getId(){
 		return $this->id;
 	}
+
+	/**
+	 * Get file Type of this object
+	 *
+	 * @return string
+	 */
 	final public function getType(){
 		return $this->type;
 	}
 
+	/**
+	 * Get file of this object
+	 *
+	 * @return string
+	 */
 	final public function getFile(){
 		return $this->file;
 	}
 
+	/**
+	 * common way to add line to file
+	 *
+	 * it will add \n at end of string
+	 */
 	final public function addString($line){
 		$this->string .= "{$line}\n";
 	}
 
+	/**
+	 * clear $this->string for create
+	 */
 	final public function clearString(){
 		$this->string = '';
 	}
 
+	/**
+	 * need to be override
+	 *
+	 * @return string
+	 */
 	public function getString(){
 		return $this->string;
 	}
 
+	/**
+	 * generate id auto
+	 *
+	 * set $this->id value
+	 */
 	final protected function genId(){
 		$this->id = 'bele' . self::$ID_INDEX++;
 	}
