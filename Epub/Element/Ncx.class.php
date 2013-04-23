@@ -11,6 +11,9 @@ class Epub_Element_Ncx extends Epub_Element
 	private $docTitle = 'Default';
 	private $docAuthor = 'Default';
 
+	private $chapterID = 1;
+	private $playOrder = 1;
+
 	public function __construct(){
 		$this->file = 'bdoc.ncx';
 		$this->type = 'ncx';
@@ -32,16 +35,15 @@ class Epub_Element_Ncx extends Epub_Element
 	 *
 	 * @param Epub_Element_Ncx_Nav $nav
 	 */
-	public function addNav(Epub_Element_Ncx_Nav $nav){
-		$this->navMap[] = $nav;
+	public function addChapter(Epub_Chapter $chapter){
+		$this->navMap[] = $chapter;
 	}
 
 	public function setCover(Epub_Element_Html $html){
-		Epub_Element_Ncx_Nav::genPlayOrder();
-		foreach($this->navMap as &$nav){
-			$nav->playOrder++;
-		}
-		array_unshift($this->navMap, new Epub_Element_Ncx_Nav($html->id, 1, $html->getFile(), 'CoverPage'));
+		$chapter = new Epub_Chapter();
+		$chapter->setTitle('封面');
+		$chapter->setLink($html);
+		array_unshift($this->navMap, $chapter);
 	}
 
 	public function getString(){
@@ -62,10 +64,16 @@ class Epub_Element_Ncx extends Epub_Element
 		$this->addString(sprintf('<docAuthor><text>%s</text></docAuthor>', $this->docAuthor));
 		//navmap section
 		$this->addString('<navMap>');
-		foreach($this->navMap as $i => $nav){
-			$string = sprintf('<navPoint id="%s" playOrder="%d"><navLabel><text>%s</text></navLabel><content src="%s" /></navPoint>',
-				$nav->id, $nav->playOrder, $nav->text, $nav->src);
+		foreach($this->navMap as $chapter){
+			$string = sprintf('<navPoint id="%s" playOrder="%d"><navLabel><text>%s</text></navLabel><content src="%s" />',
+				$this->genChapterId(), $this->genPlayOrder(), $chapter->getTitle(), $chapter->getLink());
 			$this->addString($string);
+			foreach($chapter->getSubChapters() as $subChapter){
+				$string = sprintf('<navPoint id="%s" playOrder="%d"><navLabel><text>%s</text></navLabel><content src="%s" /></navPoint>',
+					$this->genChapterId(), $this->genPlayOrder(), $subChapter->getTitle(), $subChapter->getLink());
+				$this->addString($string);
+			}
+			$this->addString('</navPoint>');
 		}
 		$this->addString('</navMap>');
 
@@ -73,6 +81,14 @@ class Epub_Element_Ncx extends Epub_Element
 		$this->addString('</ncx>');
 
 		return $this->string;
+	}
+
+	public function genChapterId(){
+		return 'chapter_' . $this->chapterID++;
+	}
+
+	public function genPlayOrder(){
+		return $this->playOrder++;
 	}
 }
 

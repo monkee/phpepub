@@ -15,6 +15,11 @@ phpepub
 epub介绍：http://idpf.org/epub  
 zip class : http://www.phpclasses.org/package/6110
 
+# 升级
+
+1. 重新整理了章的创建方式，使用新的类：Epub_Chapter来管理章和目录
+2. 增加了二级目录
+
 # example
 
 1. sample/sample.php

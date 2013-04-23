@@ -6,7 +6,7 @@
  */
 
 
-include "../autoload.php";
+include "../Epub.class.php";
 
 
 $epub = new Epub();
@@ -37,11 +37,22 @@ $image->setSrc('1.jpg');
 $image->setFile('image/1.jpg');
 $epub->addImage($image);
 
-for($i = 1; $i < 2; $i++){
+for($i = 1; $i < 9; $i++){
 	$html = new Epub_Element_Html();
-	$html->setSrc('1.html');
+	$html->setContent(str_replace('%%%%%%%%', $i, file_get_contents('1.html')));
 	$html->setFile($i . '.html');
-	$epub->addChapter('section ' . $i, $html);
+	$epub->addHtml($html);
+	$chapter = new Epub_Chapter();
+	$chapter->setTitle('section ' . $i);
+	$chapter->setLink($html);
+
+	if($i < 4){
+		$sub = new Epub_Chapter_Sub();
+		$sub->setTitle('link' . $i);
+		$sub->setLink($html, 'link' . $i);
+		$chapter->addSubChapter($sub);
+	}
+	$epub->addChapter($chapter);
 }
 
 
